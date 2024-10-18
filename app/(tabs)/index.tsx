@@ -1,70 +1,186 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+// import { View, Image, ScrollView, Text, TextInput } from 'react-native'
+// import React from 'react'
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+// const App = () => {
+//   return (
+//     <ScrollView>
+//       <Text>Some Text</Text>
+//       <View>
+//       <Text>Some More Text</Text>
+//       <Image source={{
+//         uri:'https://reactnative.dev/docs/assets/p_cat2.png',
+//       }}
+//       style={{width:200, height:200,}}
+//       />
+//       </View>
 
-export default function HomeScreen() {
+//       <TextInput
+//        style={{height:40,
+//         borderColor: "gray",
+//         borderWidth: 1,
+//        }}
+//        defaultValue='Enter Name Here'
+//        />
+//     </ScrollView>
+//   )
+// }
+
+// export default App
+
+
+
+// /PROPS/ 
+// import { View, Text, TextInput } from 'react-native'
+// import React from 'react'
+
+// const Cat = props => {
+//   return(
+//     <Text> This is {props.name} component</Text>
+//   )
+// }
+
+// const Cafe = () => {
+//   return(
+//     <View>
+//       <Text>This is another text</Text>
+//       <Cat name="dogs" />
+//       <Cat name="tiger" />
+//     </View>
+//   )
+// }
+
+// export default Cafe
+
+// STATE MANAGEMENT
+// import { View, Text, Button, } from 'react-native'
+// import React, {useState} from 'react'
+
+// const Cat = props => {
+//   const [isHungry, setIsHungry] = useState(true);
+
+//   return (
+//     <View>
+//       <Text>I am {props.name}, and I am { isHungry ? 'hungry' : 'full'}! </Text>
+
+//       <Button 
+//       onPress={() => {
+//         setIsHungry(false);
+//       }}
+//       disabled={!isHungry}
+//       title={isHungry ? 'Give me some food please' : 'Thankyou'}
+//       />
+//     </View>
+//   )
+// }
+
+// const Cafe = () => {
+//   return(
+//     <>
+//     <Cat name = "Monty" />
+//     <Cat name = "Other name" />
+//     </>
+//   )
+// }
+
+// export default Cafe
+
+
+
+// import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+// import Checkbox from 'expo-checkbox'
+// import React, { useState } from 'react'
+
+
+
+
+// const App = () => {
+
+//   const [userName, setUserName] = useState("")
+//   const [password, setPassword] = useState("")
+//   const [agree, setAgree] = useState(false);
+
+//   return (
+//     <View style={{
+//       display: "flex",
+//       padding: 20
+//     }}>
+//       <Text>Login Form</Text>
+//       <Text> You can reach out to us anytime via info@optrevol.com</Text>
+
+//       <View>
+//         <Text style={{
+//           color: "white"
+//         }}>Enter Your Name</Text>
+//         <TextInput
+//           style={{
+//             borderWidth: 1,
+//             borderColor: 'white',
+//             borderRadius: 20,
+//             color: "white",
+//             padding: 10
+//           }}
+//           value= {userName}
+//           onChangeText={ (actualData)=> setUserName(actualData)}
+//           autoCapitalize='none'
+//           autoCorrect={false}
+//         />
+
+//         <Text style={{ color: 'white' }}>Enter Your Password</Text>
+//         <TextInput
+//           style={{
+//             borderWidth: 1,
+//             borderColor: 'white',
+//             borderRadius: 20,
+//             color: "white",
+//             padding: 10
+//           }}
+//           autoCapitalize='none'
+//           autoCorrect={false}
+//           secureTextEntry={true}
+//           value= {password}
+//           onChangeText={ (actualData)=> setPassword(actualData)}
+//         />
+//       </View>
+
+//       <View>
+//         <Checkbox
+//         value={ agree }
+//         onValueChange={ ()=> setAgree(!agree) }
+//         />
+//         <Text style={{ color: 'white' }}> Agree with Terms and Conditions</Text>
+//       </View>
+//       <TouchableOpacity style={{
+//         backgroundColor: agree ? 'blue' : 'grey',
+//         width: 200,
+//         display: 'flex',
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         padding: 10,
+//         alignSelf: 'center'
+
+//       }}
+//       disabled={!agree}>
+//         <Text style={{ color: 'white' }}>Hello</Text>
+//       </TouchableOpacity>
+//     </View>
+//   )
+// }
+
+// export default App
+
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+
+const App = () => {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
+    <View style={{
+      padding: 60,
+    }}>
+      <Text style={{ color: "white" }}>App</Text>
+    </View>
+  )
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+export default App
+
+const styles = StyleSheet.create({})
